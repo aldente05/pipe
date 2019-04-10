@@ -1,23 +1,23 @@
 /**
  * Created by f.putra on 27/11/18.
  */
-import {createAppContainer, createBottomTabNavigator} from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 
-
-const navigationStack = createBottomTabNavigator({
+const bottomTabNavigator = createBottomTabNavigator({
         LandingPage: {
             screen: require('./views/Home/LandingPage').default
         },
         Pipeline: {
             screen: require('./views/Pipeline/Pipeline').default
         },
-    Calendar: {
+
+        Calendar: {
             screen: require('./views/Calendar/Calendar').default
         },
-    Profile: {
+        Profile: {
             screen: require('./views/Profile/Profile').default
         },
-    Menu: {
+        Menu: {
             screen: require('./views/Menu/Menu').default
         }
     }, {
@@ -27,8 +27,8 @@ const navigationStack = createBottomTabNavigator({
         tabBarOptions: {
             showLabel: false,
             showIcon: true,
-            activeTintColor: '#cf2b5d',
-            inactiveTintColor: '#C7CCCF',
+            activeTintColor: 'rgb(170, 207, 202)',
+            inactiveTintColor: 'transparent',
             labelStyle: {
                 fontSize: 8,
             },
@@ -46,6 +46,27 @@ const navigationStack = createBottomTabNavigator({
             },
         },
 
+    }
+)
+
+const navigationStack = createStackNavigator({
+        Home: bottomTabNavigator,
+        Create: {
+            screen: require('./views/Pipeline/Create').default
+        },
+        LinkPerson: {
+            screen: require('./views/Pipeline/LinkPerson').default
+        },
+        LinkOrganisation: {
+            screen: require('./views/Pipeline/LinkOrganisation').default
+        },
+        DetailDeal: {
+            screen: require('./views/Pipeline/DetailDeal').default
+        },
+    },
+    {
+        initialRouteName: "Home",
+        headerMode: 'none',
     }
 )
 

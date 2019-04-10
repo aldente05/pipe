@@ -55,6 +55,9 @@ const style = StyleSheet.create({
     header : {
         backgroundColor : '#616161',
     },
+    subHeader : {
+        backgroundColor : '#f5f5f5',
+    },
     iconWhite :{
         color : '#f5f5f5',
     },

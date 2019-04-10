@@ -2,8 +2,9 @@
  * Created by f.putra on 2019-04-03.
  */
 import React from 'react';
-import {Dimensions, View, Text} from 'react-native';
-import {Body, Button, Container, Content, Fab, Header, Icon, Picker, Right} from 'native-base'
+import {Dimensions, Text, View} from 'react-native';
+import {Container, Content, Icon} from 'native-base'
+import styles from './../../utils/Style'
 
 const {width, height} = Dimensions.get('window')
 
@@ -11,7 +12,19 @@ class Home extends React.Component {
 
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Icon name={'calendar'}/>
+            <View
+                style={[styles.xxlarge, {
+                    width: width * 0.09,
+                    height: height * 0.055,
+                    borderRadius: 15,
+                    borderWidth: 2,
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    borderColor: tintColor,
+                    backgroundColor: tintColor
+                }]}>
+                <Icon name={'calendar'} style={{alignSelf: 'center'}}/>
+            </View>
         ),
     };
 

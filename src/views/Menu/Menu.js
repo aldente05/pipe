@@ -3,7 +3,8 @@
  */
 import React from 'react';
 import {Dimensions, Text, View} from 'react-native';
-import {Button, Container, Content, Fab, Icon} from 'native-base'
+import {Container, Content, Icon} from 'native-base'
+import styles from './../../utils/Style'
 
 const {width, height} = Dimensions.get('window')
 
@@ -11,7 +12,19 @@ class Home extends React.Component {
 
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Icon name={'more'}/>
+            <View
+                style={[styles.xxlarge, {
+                    width: width * 0.09,
+                    height: height * 0.055,
+                    borderRadius: 15,
+                    borderWidth: 2,
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    borderColor: tintColor,
+                    backgroundColor: tintColor
+                }]}>
+                <Icon name={'more'} style={{alignSelf: 'center'}}/>
+            </View>
         ),
     };
 
