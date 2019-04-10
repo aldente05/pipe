@@ -4,6 +4,7 @@
 import React from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import {Body, Container, Content, Header, Icon, Left, Right, Tab, Tabs} from 'native-base'
+import MultiSwitch from './../../components/MultiSwitch';
 import styles from '../../utils/Style'
 
 const {width, height} = Dimensions.get('window')
@@ -71,9 +72,19 @@ class Home extends React.Component {
                             <Text style={{left: 15}}>Name Organisation</Text>
                         </View>
 
-                        <View style={{backgroundColor: '#c8e6c9', height: 30, padding: 5, marginTop: 10}}>
-                            <Text style={{left: width / 10}}>SLIDER</Text>
-                        </View>
+                        <MultiSwitch
+                            disableSwitch={false}
+                            currentStatus={'third'}
+                            disableScroll={value => {
+                                console.log('scrollEnabled', value);
+                                // this.scrollView.setNativeProps({
+                                //     scrollEnabled: value
+                                // });
+                            }}
+                            isParentScrollEnabled={false}
+                            onStatusChanged={text => {
+                                console.log('Change Status ', text);
+                            }}/>
 
                         <View style={{flex: 0.1, padding: 15, flexDirection: 'row', justifyContent: 'space-between'}}>
                             <View>
@@ -85,19 +96,19 @@ class Home extends React.Component {
                                     alignContent: 'center',
                                     justifyContent: 'center',
                                     backgroundColor: '#43a047',
-                                    width : 60,
-                                    marginRight : 5
+                                    width: 60,
+                                    marginRight: 5
                                 }}>
-                                    <Text style={{alignSelf : 'center', color: '#f5f5f5'}}>WON</Text>
+                                    <Text style={{alignSelf: 'center', color: '#f5f5f5'}}>WON</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={{
                                     alignContent: 'center',
                                     justifyContent: 'center',
                                     backgroundColor: '#f44336',
-                                    width : 60,
-                                    marginLeft : 5
+                                    width: 60,
+                                    marginLeft: 5
                                 }}>
-                                    <Text style={{alignSelf : 'center', color: '#f5f5f5'}}>LOST</Text>
+                                    <Text style={{alignSelf: 'center', color: '#f5f5f5'}}>LOST</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

@@ -65,7 +65,7 @@ const navigationStack = createStackNavigator({
         },
     },
     {
-        initialRouteName: "Home",
+        initialRouteName: "DetailDeal",
         headerMode: 'none',
     }
 )
